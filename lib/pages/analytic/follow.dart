@@ -65,7 +65,7 @@ class _FollowPageState extends State<FollowPage>
         controller: _tabController,
         tabs: _tabWidgetList,
         labelColor: Colors.black,
-        indicatorColor: Colors.black,
+        indicatorColor: Colors.green[500],
         indicatorWeight: 2.0,
         isScrollable: true,
         indicatorSize: TabBarIndicatorSize.label,
@@ -73,71 +73,35 @@ class _FollowPageState extends State<FollowPage>
     );
   }
 
-  // @override
-  // Widget build(BuildContext context) {
-  //   return Stack(
-  //     children: <Widget>[
-  //       Positioned(
-  //         left: 0,
-  //         right: 0,
-  //         top: 0,
-  //         bottom: 0,
-  //         child: buildTableViewWidget(),
-  //       ),
-  //       Positioned(
-  //         left: 0,
-  //         right: 0,
-  //         bottom: 0,
-  //         top: 30,
-  //         child: buildTabBarWidget(),
-  //       ),
-  //     ],
-  //   );
-  // }
   @override
   Widget build(BuildContext context) {
     double screenHeight = MediaQuery.of(context).size.height;
-    return Column(
-      mainAxisAlignment: MainAxisAlignment.spaceAround,
-      children: <Widget>[
-        TabBar(
-          controller: _tabController,
-          // indicatorColor: Colors.transparent,
-          // indicator: BoxDecoration(
-          //   borderRadius: BorderRadius.circular(
-          //     8.0,
-          //   ),
-          //   color: Colors.green[400],
-          // ),
-          labelColor: Colors.orange,
-          unselectedLabelColor: Colors.black54,
-          isScrollable: true,
-          tabs: _tabWidgetList,
-        ),
-        Container(
-          // height: screenHeight * 0.70,
-          height: 20,
-          margin: EdgeInsets.only(left: 16.0, right: 16.0),
-          child: TabBarView(
-            controller: _tabController,
-            physics: const NeverScrollableScrollPhysics(),
-            children: <Widget>[
-              Container(
-                decoration: BoxDecoration(
-                  borderRadius: BorderRadius.circular(8.0),
-                  color: Colors.blueGrey[300],
-                ),
-              ),
-              Container(
-                decoration: BoxDecoration(
-                  borderRadius: BorderRadius.circular(8.0),
-                  color: Colors.blueGrey[300],
-                ),
-              ),
-            ],
+    return Scaffold(
+      body: Stack(
+        children: <Widget>[
+          Positioned(
+            left: 0,
+            right: 0,
+            top: 0,
+            bottom: 0,
+            child: buildTableViewWidget(),
           ),
-        )
-      ],
+          Positioned(
+            left: 0,
+            right: 0,
+            bottom: 0,
+            top: 38,
+            child: buildTabBarWidget(),
+          ),
+        ],
+      ),
+      floatingActionButton: FloatingActionButton(
+        onPressed: () {
+          // Add your onPressed code here!
+        },
+        backgroundColor: Colors.green[400],
+        child: const Icon(Icons.add),
+      ),
     );
   }
 }

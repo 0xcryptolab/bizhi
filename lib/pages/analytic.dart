@@ -74,12 +74,15 @@ class _AnalyticPageState extends State<AnalyticPage>
         controller: _tabController,
         tabs: _tabWidgetList,
         labelColor: Colors.green[900],
-        unselectedLabelColor: Colors.black,
-        // indicatorColor: Colors.black,
-        indicatorColor: Colors.transparent,
+        indicator: BoxDecoration(
+          // borderRadius: BorderRadius.circular(
+          //   8.0,
+          // ),
+          color: Colors.green[400],
+        ),
         indicatorWeight: 2.0,
         isScrollable: true,
-        indicatorSize: TabBarIndicatorSize.label,
+        // indicatorSize: TabBarIndicatorSize.label,
       ),
     );
   }
