@@ -38,6 +38,7 @@ dependencies:
   pixelarticons: ^0.4.0
   # freezed: ^2.3.2
   freezed_annotation: ^2.2.0
+  flutter_svg: ^2.0.1
 
 
 dev_dependencies:
@@ -69,6 +70,7 @@ flutter:
   assets:
     - assets/
     - assets/images/
+    - assets/logos/color/
     - fonts/
   # An image asset can refer to one or more resolution-specific "variants", see
   # https://flutter.dev/assets-and-images/#resolution-aware

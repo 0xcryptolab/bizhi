@@ -1,3 +1,4 @@
+import 'package:bizhi/widgets/coins.dart';
 import 'package:flutter/material.dart';
 
 class FollowPage extends StatefulWidget {
@@ -82,9 +83,9 @@ class _FollowPageState extends State<FollowPage>
           Positioned(
             left: 0,
             right: 0,
-            top: 0,
+            top: 84,
             bottom: 0,
-            child: buildTableViewWidget(),
+            child: CoinsList(),
           ),
           Positioned(
             left: 0,
