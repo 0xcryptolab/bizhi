@@ -1,16 +1,13 @@
 # bizhi
 
-A new Flutter project.
+Bizhidao is a decentralized platform that provides users with access to a range of blockchain-related information, news, and analysis.
 
-## Getting Started
+## Todo
 
-This project is a starting point for a Flutter application.
+- Connect to various exchanges, view and operate assets. Create a unified interface function for easier integration with other exchanges in the future.
+- Provide decentralized wallet functionality, improve on-chain asset management and operations. Integrate with decentralized exchanges to achieve similar functionalities as centralized exchanges as much as possible.
+- Break down barriers between centralized exchanges, between centralized and decentralized exchanges, and between decentralized exchanges. Use a unified approach to make it easier to use.
+- Provide or integrate with more financial services, such as staking, NFTs, arbitrage, etc.
 
-A few resources to get you started if this is your first Flutter project:
+## Starting Point
 
-- [Lab: Write your first Flutter app](https://docs.flutter.dev/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://docs.flutter.dev/cookbook)
-
-For help getting started with Flutter development, view the
-[online documentation](https://docs.flutter.dev/), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
