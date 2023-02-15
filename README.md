@@ -10,4 +10,7 @@ Bizhidao is a decentralized platform that provides users with access to a range 
 - Provide or integrate with more financial services, such as staking, NFTs, arbitrage, etc.
 
 ## Starting Point
+![image](https://user-images.githubusercontent.com/98807352/218635213-28785dd9-dc3b-44db-8eae-7badfd1ae247.png)
 
+## Join Us
+<img src="https://user-images.githubusercontent.com/98807352/218639947-3de96397-9409-48ec-b9e9-e04121722916.png" width="300">
