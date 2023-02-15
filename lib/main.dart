@@ -42,8 +42,8 @@ class _MyHomePageState extends State<MyHomePage> {
   int _selectedIndex = 0;
 
   List<Widget> pages = [
-    AnalyticPage(),
     MarketPage(),
+    AnalyticPage(),
     DiscoveryPage(),
     ViewPage(),
     ProfilePage()
