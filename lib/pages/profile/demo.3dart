@@ -1,0 +1,238 @@
+class MySecondPage extends StatefulWidget {
+  final double minHeightFraction = 0.3;
+  final double maxHeightFraction = 0.9;
+
+  @override
+  _MySecondPageState createState() => _MySecondPageState();
+}
+
+class _MySecondPageState extends State<MySecondPage>
+    with SingleTickerProviderStateMixin {
+  late AnimationController animationController;
+  double dy = 0.0;
+
+  @override
+  void initState() {
+    super.initState();
+    animationController = AnimationController(
+      vsync: this,
+      duration: const Duration(milliseconds: 500),
+    );
+  }
+
+  @override
+  void dispose() {
+    animationController.dispose();
+    super.dispose();
+  }
+
+  void _handleDragUpdate(DragUpdateDetails details) {
+    double delta = details.primaryDelta!;
+    double newDy = dy + delta;
+    double screenHeight = MediaQuery.of(context).size.height;
+    double minHeight = screenHeight * widget.minHeightFraction;
+    double maxHeight = screenHeight * widget.maxHeightFraction;
+    setState(() {
+      dy = newDy.clamp(0.0, maxHeight - minHeight);
+    });
+  }
+
+  void _handleDragEnd(DragEndDetails details) {
+    double screenHeight = MediaQuery.of(context).size.height;
+    double minHeight = screenHeight * widget.minHeightFraction;
+    double maxHeight = screenHeight * widget.maxHeightFraction;
+    if (dy < (maxHeight - minHeight) / 2) {
+      animationController.animateTo(0.0);
+      setState(() {
+        dy = 0.0;
+      });
+    } else {
+      animationController.animateTo(1.0);
+      setState(() {
+        dy = maxHeight - minHeight;
+      });
+    }
+  }
+
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      backgroundColor: Colors.transparent,
+      body: AnimatedBuilder(
+          animation: animationController,
+          builder: (BuildContext context, Widget? child) {
+            return Container(
+              height: Tween<double>(
+                begin: MediaQuery.of(context).size.height *
+                    widget.minHeightFraction,
+                end: MediaQuery.of(context).size.height *
+                    widget.maxHeightFraction,
+              )
+                  .animate(CurvedAnimation(
+                    parent: animationController,
+                    curve: Curves.easeOut,
+                    reverseCurve: Curves.easeIn,
+                  ))
+                  .value,
+              margin:
+                  EdgeInsets.only(top: dy * (1 - animationController.value)),
+              child: GestureDetector(
+                  behavior: HitTestBehavior.opaque,
+                  onVerticalDragUpdate: _handleDragUpdate,
+                  onVerticalDragEnd: _handleDragEnd,
+                  child: Container(
+                      decoration: BoxDecoration(
+                        color: Colors.white,
+                        borderRadius: BorderRadius.only(
+                          topLeft: Radius.circular(20.0),
+                          topRight: Radius.circular(20.0),
+                        ),
+                        boxShadow: [
+                          BoxShadow(
+                            color: Colors.black54,
+                            blurRadius: 10.0,
+                            spreadRadius: 5.0,
+                            offset: Offset(0.0, -5.0),
+                          ),
+                        ],
+                      ),
+                      child: Column(children: [
+                        Container(
+                          margin: EdgeInsets.only(top: 10.0),
+                          height: 4.0,
+                          width: 40.0,
+                          decoration: BoxDecoration(
+                            color: Colors.grey[400],
+                            borderRadius: BorderRadius.circular(2.0),
+                          ),
+                        ),
+                        Expanded(
+                          child: SingleChildScrollView(
+                            physics: NeverScrollableScrollPhysics(),
+                            child: Container(
+                              margin: EdgeInsets.all(10.0),
+                              child: Column(
+                                crossAxisAlignment: CrossAxisAlignment.start,
+                                children: [
+                                  Text(
+                                    '这是一个新页面',
+                                    style: TextStyle(
+                                      fontSize: 20.0,
+                                      fontWeight: FontWeight.bold,
+                                    ),
+                                  ),
+                                  SizedBox(height: 10.0),
+                                  Text(
+                                    '往下拉可以关闭',
+                                    style: TextStyle(
+                                      fontSize: 16.0,
+                                    ),
+                                  ),
+                                  SizedBox(height: 10.0),
+                                  Text(
+                                    'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.',
+                                    style: TextStyle(
+                                      fontSize: 16.0,
+                                    ),
+                                  ),
+                                ],
+                              ),
+                            ),
+                          ),
+                        ),
+                        Container(
+                          margin: EdgeInsets.only(bottom: 10.0),
+                          child: IconButton(
+                            icon: Icon(Icons.close),
+                            onPressed: () {
+                              animationController.animateTo(0.0);
+                              Navigator.of(context).pop();
+                            },
+                          ),
+                        ),
+                      ]))),
+            );
+          }),
+
+      // body:
+    );
+  }
+}
+//     )},
+//   ),
+// ;)
+// }
+//   }
+
+
+
+
+
+// // class WalletPage extends StatelessWidget {
+
+// // }
+
+// class WalletPageRoute extends PageRoute {
+//   final Widget child;
+
+//   WalletPageRoute({required this.child});
+
+//   @override
+//   Color? get barrierColor => Colors.black54;
+
+//   @override
+//   bool get opaque => false;
+
+//   @override
+//   String get barrierLabel => '';
+
+//   @override
+//   bool get maintainState => true;
+
+//   @override
+//   Duration get transitionDuration => Duration(milliseconds: 500);
+
+//   @override
+//   Widget buildPage(BuildContext context, Animation<double> animation,
+//       Animation<double> secondaryAnimation) {
+//     return child;
+//   }
+
+//   @override
+//   Widget buildTransitions(
+//     BuildContext context,
+//     Animation<double> animation,
+//     Animation<double> secondaryAnimation,
+//     Widget child,
+//   ) {
+//     return Stack(
+//       children: <Widget>[
+//         Positioned.fill(
+//           child: Container(
+//             color: Colors.black54,
+//           ),
+//         ),
+//         SlideTransition(
+//           position: Tween<Offset>(begin: Offset(0.0, 1.0), end: Offset.zero)
+//               .animate(animation),
+//           child: GestureDetector(
+//             onVerticalDragDown: (_) {},
+//             onVerticalDragUpdate: (details) {
+//               animationController.value -=
+//                   details.primaryDelta! / (context.size?.height ?? 1);
+//             },
+//             onVerticalDragEnd: (details) {
+//               if (animationController.value >= 0.5) {
+//                 animationController.forward();
+//               } else {
+//                 animationController.reverse();
+//               }
+//             },
+//             child: child,
+//           ),
+//         ),
+//       ],
+//     );
+//   }
+// }
+

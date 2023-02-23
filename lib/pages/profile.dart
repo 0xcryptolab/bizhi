@@ -4,6 +4,8 @@ import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:qr_flutter/qr_flutter.dart';
 
+import 'profile/wallet.dart';
+
 class ProfilePage extends StatefulWidget {
   const ProfilePage({Key? key}) : super(key: key);
 
@@ -55,7 +57,13 @@ class _ProfilePageState extends State<ProfilePage>
                   Icons.format_align_left,
                   color: Colors.black,
                 ),
-                onPressed: () => {},
+                onPressed: () {
+                  Navigator.push(
+                    context,
+                    // MyPageRoute(child: MySecondPage()),
+                    WalletPageRoute(child: WalletPage()),
+                  );
+                },
               ),
             ],
           ),
@@ -82,7 +90,7 @@ class _ProfilePageState extends State<ProfilePage>
         child: Column(
           children: [
             Container(
-              decoration: BoxDecoration(
+              decoration: const BoxDecoration(
                 color: Colors.green,
                 borderRadius: BorderRadius.only(
                   topLeft: Radius.circular(8.0),
