@@ -236,43 +236,45 @@ class _CoinsListState extends State<CoinsList> {
         ),
         Expanded(
           child: ListView.builder(
+            shrinkWrap: true,
+            physics: ClampingScrollPhysics(),
             itemCount: _coins.length,
             itemBuilder: (context, index) {
               return Card(
                 child: ListTile(
-                    leading: SvgPicture.asset(
-                      'assets/logos/color/${_coins[index].logo.toLowerCase()}.svg',
-                      allowDrawingOutsideViewBox: true,
-                    ),
-                    title: Text(_coins[index].name),
-                    subtitle: Text('Price: \$${_coins[index].price}'),
-                    trailing: Wrap(
-                      spacing: 50, // space between two icons
-                      children: <Widget>[
-                        Expanded(
-                            flex: 3,
-                            child: Text('${_coins[index].percentage24}%')),
-                        Expanded(
-                            flex: 3,
-                            child: Text('${_coins[index].percentage24}%')),
-                        // Text('${_coins[index].percentage24}%'),
-                      ],
-                    )
-                    // Row(
-                    //   children: [
-                    //     Expanded(child: Text('${_coins[index].percentage24}%')),
-                    //     Expanded(child: Text('${_coins[index].percentage24}%')),
-                    //   ],
-                    // ),
+                  leading: SvgPicture.asset(
+                    'assets/logos/color/${_coins[index].logo.toLowerCase()}.svg',
+                    allowDrawingOutsideViewBox: true,
+                  ),
+                  title: Text(_coins[index].name),
+                  subtitle: Text('Price: \$${_coins[index].price}'),
+                  trailing: Wrap(
+                    spacing: 50, // space between two icons
+                    children: <Widget>[
+                      Expanded(
+                          flex: 3,
+                          child: Text('${_coins[index].percentage24}%')),
+                      Expanded(
+                          flex: 3,
+                          child: Text('${_coins[index].percentage24}%')),
+                      // Text('${_coins[index].percentage24}%'),
+                    ],
+                  ),
+                  // Row(
+                  //   children: [
+                  //     Expanded(child: Text('${_coins[index].percentage24}%')),
+                  //     Expanded(child: Text('${_coins[index].percentage24}%')),
+                  //   ],
+                  // ),
 
-                    // Row(
-                    //   children: [
+                  // Row(
+                  //   children: [
 
-                    //     // Text('${_coins[index].percentage24}%'),
-                    //     // Text('${getProfitRatio(_coins[index])}%'),
-                    //   ],
-                    // )
-                    ),
+                  //     // Text('${_coins[index].percentage24}%'),
+                  //     // Text('${getProfitRatio(_coins[index])}%'),
+                  //   ],
+                  // )
+                ),
               );
             },
           ),

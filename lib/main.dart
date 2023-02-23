@@ -42,11 +42,11 @@ class _MyHomePageState extends State<MyHomePage> {
   int _selectedIndex = 0;
 
   List<Widget> pages = [
+    ProfilePage(),
     MarketPage(),
     AnalyticPage(),
     DiscoveryPage(),
     ViewPage(),
-    ProfilePage()
   ];
 
   void _onItemTapped(int index) {
