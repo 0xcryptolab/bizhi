@@ -2,7 +2,7 @@ import 'package:bizhi/pages/View.dart';
 import 'package:bizhi/pages/analytic.dart';
 import 'package:bizhi/pages/discovery.dart';
 import 'package:bizhi/pages/market.dart';
-import 'package:bizhi/pages/profile.dart';
+import 'package:bizhi/pages/wallet.dart';
 import 'package:flutter/material.dart';
 import 'package:flashy_tab_bar2/flashy_tab_bar2.dart';
 import 'package:pixelarticons/pixelarticons.dart';
@@ -42,7 +42,7 @@ class _MyHomePageState extends State<MyHomePage> {
   int _selectedIndex = 0;
 
   List<Widget> pages = [
-    ProfilePage(),
+    WalletPage(),
     MarketPage(),
     AnalyticPage(),
     DiscoveryPage(),
@@ -122,16 +122,16 @@ class _MyHomePageState extends State<MyHomePage> {
         onItemSelected: (index) => _onItemTapped(index),
         items: [
           FlashyTabBarItem(
-            icon: const Icon(Pixel.analytics),
-            title: const Text('Analysis'),
+            icon: const Icon(Pixel.wallet),
+            title: const Text('Wallet'),
+          ),
+          FlashyTabBarItem(
+            icon: const Icon(Icons.explore_outlined),
+            title: const Text('Discover'),
           ),
           FlashyTabBarItem(
             icon: const Icon(Icons.local_convenience_store_outlined),
             title: const Text('Market'),
-          ),
-          FlashyTabBarItem(
-            icon: const Icon(Icons.explore_outlined),
-            title: const Text('Discovery'),
           ),
           FlashyTabBarItem(
             icon: const Icon(Icons.newspaper_outlined),

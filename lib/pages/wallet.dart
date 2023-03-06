@@ -4,16 +4,16 @@ import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:qr_flutter/qr_flutter.dart';
 
-import 'profile/wallet.dart';
+import 'wallet/wallet_list.dart';
 
-class ProfilePage extends StatefulWidget {
-  const ProfilePage({Key? key}) : super(key: key);
+class WalletPage extends StatefulWidget {
+  const WalletPage({Key? key}) : super(key: key);
 
   @override
-  _ProfilePageState createState() => _ProfilePageState();
+  _WalletPageState createState() => _WalletPageState();
 }
 
-class _ProfilePageState extends State<ProfilePage>
+class _WalletPageState extends State<WalletPage>
     with SingleTickerProviderStateMixin {
   final int connectStatus = 0; //  0: connected, 1: lose connect
   late TabController _tabController;
@@ -61,7 +61,7 @@ class _ProfilePageState extends State<ProfilePage>
                   Navigator.push(
                     context,
                     // MyPageRoute(child: MySecondPage()),
-                    WalletPageRoute(child: WalletPage()),
+                    WalletListPageRoute(child: WalletListPage()),
                   );
                 },
               ),
